@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/render"
 
 	"github.com/titpetric/task-ui/server/config"
@@ -23,7 +23,7 @@ func (svc *Server) Task(w http.ResponseWriter, r *http.Request) {
 		render.JSON(w, r, NotFoundError(err))
 	}
 
-	spec, err := config.Load(".", "Taskfile.yml")
+	spec, err := config.Load(".", "Taskfile.yaml")
 	if err != nil {
 		serverError(err)
 		return

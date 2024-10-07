@@ -1,6 +1,6 @@
 # Task UI
 
-Run your `Taskfile.yml` from the browser.
+Run your `Taskfile.yaml` from the browser.
 
 ![](https://raw.githubusercontent.com/titpetric/task-ui/main/.github/assets/task-ui.png)
 
@@ -39,7 +39,7 @@ services:
 ```
 
 In particular, you should mount your `/app` folder which contains your
-`Taskfile.yml`, `docker-compose.yml` and other files. Task UI will run
+`Taskfile.yaml`, `docker-compose.yml` and other files. Task UI will run
 with what you provide it with.
 
 - If you don't want history, remove the `command` flags.

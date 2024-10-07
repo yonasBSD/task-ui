@@ -16,7 +16,7 @@ type flags struct {
 
 func (f *flags) Bind() {
 	pflag.StringVar(&f.ListenAddress, "l", ":3000", "Listen address for task-ui")
-	pflag.StringVar(&f.Taskfile, "f", "Taskfile.yml", "Taskfile filename to load")
+	pflag.StringVar(&f.Taskfile, "f", "Taskfile.yaml", "Taskfile filename to load")
 	pflag.BoolVar(&f.EnableHistory, "history-enable", false, "Enable history with ovh-ttyrecord")
 	pflag.StringVar(&f.HistoryOutput, "history-output", "./history", "History output folder")
 	pflag.BoolVarP(&f.PrintBuildInfo, "version", "v", false, "Print build info")

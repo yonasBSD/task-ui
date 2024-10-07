@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/go-task/task/v3/taskfile"
+	"github.com/go-task/task/v3/taskfile/ast"
 )
 
 // TaskInfo holds information available about a task, without
@@ -41,7 +41,7 @@ type TaskFlags struct {
 }
 
 // NewTaskInfo converts the taskfile record into our own.
-func NewTaskInfo(spec *taskfile.Task) *TaskInfo {
+func NewTaskInfo(spec *ast.Task) *TaskInfo {
 	return &TaskInfo{
 		Task:        spec.Task,
 		Description: spec.Desc,

@@ -18,7 +18,7 @@ func (svc *Server) Index(w http.ResponseWriter, r *http.Request) {
 		render.JSON(w, r, InternalServerError(err))
 	}
 
-	spec, err := config.Load(".", "Taskfile.yml")
+	spec, err := config.Load(".", "Taskfile.yaml")
 	if err != nil {
 		serverError(err)
 		return

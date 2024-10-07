@@ -10,7 +10,7 @@ import (
 	"io/ioutil"
 
 	"github.com/apex/log"
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/titpetric/task-ui/server/config"
 	"golang.org/x/net/websocket"
 
@@ -82,7 +82,7 @@ func (svc *Server) viewHistory(ws *websocket.Conn, id string, replay bool) error
 	}...)
 
 	proc, err := func() (*launchedProcess, error) {
-		return launch(id, "/bin/bash", commandArgs, env)
+		return launch(id, "/bin/sh", commandArgs, env)
 	}()
 
 	if err != nil {

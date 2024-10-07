@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 
 	"github.com/apex/log"
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v5"
 	"github.com/titpetric/task-ui/server/config"
 	"golang.org/x/net/websocket"
 
@@ -56,7 +56,7 @@ func (svc *Server) launchTask(ws *websocket.Conn, id string, interactive bool) e
 	// parse commands into command+args
 	commands := strings.Split("task "+id, " ")
 	command := commands[0]
-	commandArgs := []string{"-l", "-c", command + " " + strings.Join(commands[1:], " ")}
+	commandArgs := []string{"-c", command + " " + strings.Join(commands[1:], " ")}
 
 	// terminal environment
 	env := os.Environ()
@@ -69,9 +69,9 @@ func (svc *Server) launchTask(ws *websocket.Conn, id string, interactive bool) e
 
 	proc, err := func() (*launchedProcess, error) {
 		if svc.config.EnableHistory {
-			return record(id, "/bin/bash", commandArgs, env)
+			return record(id, "/bin/sh", commandArgs, env)
 		}
-		return launch(id, "/bin/bash", commandArgs, env)
+		return launch(id, "/bin/sh", commandArgs, env)
 	}()
 
 	if err != nil {
